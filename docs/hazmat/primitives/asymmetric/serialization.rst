@@ -418,11 +418,23 @@ Serialization Formats
         Frequently known as PKCS#1 format. Still a widely used format, but
         generally considered legacy.
 
+        In PEM encoding (for RSA key) it looks like::
+
+            -----BEGIN RSA PRIVATE KEY-----
+            ...
+            -----END RSA PRIVATE KEY-----
+
     .. attribute:: PKCS8
 
         A more modern format for serializing keys which allows for better
         encryption. Choose this unless you have explicit legacy compatibility
         requirements.
+
+        In PEM encoding it looks like::
+
+            -----BEGIN PRIVATE KEY-----
+            ...
+            -----END PRIVATE KEY-----
 
 .. class:: PublicFormat
 
@@ -443,10 +455,22 @@ Serialization Formats
         identifier and the public key as a bit string. Choose this unless
         you have specific needs.
 
+        In PEM encoding it looks like::
+
+            -----BEGIN PUBLIC KEY-----
+            ...
+            -----END PUBLIC KEY-----
+
     .. attribute:: PKCS1
 
         Just the public key elements (without the algorithm identifier). This
         format is RSA only, but is used by some older systems.
+
+        In PEM encoding it looks like::
+
+            -----BEGIN RSA PUBLIC KEY-----
+            ...
+            -----END RSA PUBLIC KEY-----
 
     .. attribute:: OpenSSH
 
